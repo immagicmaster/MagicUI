@@ -208,7 +208,7 @@ function Library:CreateWindow(config)
     CloseBtn.Size = UDim2.new(0, 30, 0, 30)
     CloseBtn.Position = UDim2.new(1, -35, 0, 5)
     CloseBtn.BackgroundTransparency = 1
-    CloseBtn.Text = "✕"
+    CloseBtn.Text = "✖"
     CloseBtn.TextColor3 = Color3.fromRGB(255, 255, 255)
     CloseBtn.Font = Enum.Font.Gotham
     CloseBtn.TextSize = 14
@@ -230,7 +230,7 @@ function Library:CreateWindow(config)
         DiscordBtn.Size = UDim2.new(0, 30, 0, 30)
         DiscordBtn.Position = UDim2.new(1, -95, 0, 5)
         DiscordBtn.BackgroundTransparency = 1
-        DiscordBtn.Text = ""
+        DiscordBtn.Text = "♔"
         DiscordBtn.Parent = TopBar
         
         local DiscIcon = Instance.new("ImageButton")
