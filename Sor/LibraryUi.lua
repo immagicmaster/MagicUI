@@ -164,7 +164,7 @@ function Library:CreateWindow(config)
     TopBar.BackgroundTransparency = 1
     TopBar.Parent = MainFrame
     
-    -- Xử lý vị trí Title phụ thuộc vào Icon Lucide
+    -- Lấy Icon từ hệ thống của Lucide thông qua PNG Proxy
     local TitleStartPos = 15
     if config.Icon and config.Icon ~= "" then
         local CleanIcon = string.lower(string.gsub(config.Icon, "%s+", ""))
@@ -172,7 +172,7 @@ function Library:CreateWindow(config)
         IconImg.Size = UDim2.fromOffset(20, 20)
         IconImg.Position = UDim2.new(0, 15, 0.5, -10)
         IconImg.BackgroundTransparency = 1
-        -- Sử dụng API Iconify để lấy trực tiếp luồng ảnh PNG từ Lucide
+        -- Vẫn lấy mã Icon gốc từ thư viện Lucide, nhưng trả về định dạng PNG cho Roblox
         IconImg.Image = "https://api.iconify.design/lucide:" .. CleanIcon .. ".png?color=ffffff"
         IconImg.Parent = TopBar
         TitleStartPos = 42
@@ -224,6 +224,7 @@ function Library:CreateWindow(config)
     MinBtn.TextSize = 14
     MinBtn.Parent = TopBar
 
+    -- Đã cập nhật Discord Icon từ link Github của bạn
     if config.Discord and config.Url then
         local DiscordBtn = Instance.new("TextButton")
         DiscordBtn.Size = UDim2.new(0, 30, 0, 30)
@@ -233,10 +234,10 @@ function Library:CreateWindow(config)
         DiscordBtn.Parent = TopBar
         
         local DiscIcon = Instance.new("ImageLabel")
-        DiscIcon.Size = UDim2.fromOffset(18, 18)
-        DiscIcon.Position = UDim2.new(0.5, -9, 0.5, -9)
+        DiscIcon.Size = UDim2.fromOffset(20, 20)
+        DiscIcon.Position = UDim2.new(0.5, -10, 0.5, -10)
         DiscIcon.BackgroundTransparency = 1
-        DiscIcon.Image = "https://api.iconify.design/bi:discord.png?color=5865f2"
+        DiscIcon.Image = "https://raw.githubusercontent.com/immagicmaster/MagicUI/refs/heads/main/Discordimage.png"
         DiscIcon.Parent = DiscordBtn
 
         DiscordBtn.MouseButton1Click:Connect(function()
@@ -427,7 +428,7 @@ function Library:CreateWindow(config)
             end)
         end
 
-        -- 4. NEW: SLIDER
+        -- 4. SLIDER
         function Tab:CreateSlider(text, min, max, default, callback)
             min = min or 0
             max = max or 100
@@ -510,7 +511,7 @@ function Library:CreateWindow(config)
             end)
         end
 
-        -- 5. NEW: DROPDOWN (DOWNDROP)
+        -- 5. DROPDOWN (DOWNDROP)
         function Tab:CreateDropdown(text, list, callback)
             local expanded = false
             list = list or {}
@@ -584,7 +585,7 @@ function Library:CreateWindow(config)
             end)
         end
 
-        -- 6. NEW: INPUT
+        -- 6. INPUT
         function Tab:CreateInput(text, placeholder, callback)
             local InputFrame = Instance.new("Frame")
             InputFrame.Size = UDim2.new(1, 0, 0, 36)
