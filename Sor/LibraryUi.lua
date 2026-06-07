@@ -233,7 +233,7 @@ function Library:CreateWindow(config)
         DiscordBtn.Text = ""
         DiscordBtn.Parent = TopBar
         
-        local DiscIcon = Instance.new("ImageLabel")
+        local DiscIcon = Instance.new("ImageButton")
         DiscIcon.Size = UDim2.fromOffset(20, 20)
         DiscIcon.Position = UDim2.new(0.5, -10, 0.5, -10)
         DiscIcon.BackgroundTransparency = 1
